@@ -29,5 +29,29 @@ function isPalindromeTwoPointer(str){
     return true;
 }
 
-console.log(isPaldindromeTwoPointer("Abby"));//false
-console.log(isPaldindromeTwoPointer())
+console.log(isPalindromeTwoPointer("Abby"));//false
+console.log(isPalindromeTwoPointer("rotator"));//true
+
+//solution 3
+function isPalindromeRecursive(str){
+    //normalize the string
+    const normalizedStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+    
+    //base case: if the string is empty or has only one character, it's a palindrome
+    if (normalizedStr.length <= 1) {
+        return true;
+    }
+    
+    //recursive case: check if the first and last characters are the same, and then check the substring that excludes those characters
+    if (normalizedStr[0] === normalizedStr[normalizedStr.length - 1]) {
+        return isPalindromeRecursive(normalizedStr.slice(1, -1)); //slice(1, -1) creates a new string that excludes the first and last characters
+    }
+    return false;
+
+}
+console.log(isPalindromeRecursive("civic"));   // true
+console.log(isPalindromeRecursive("eye"));   // true
+console.log(isPalindromeRecursive("Dance")); // false
+console.log(isPalindromeRecursive("A"));     // true
+console.log(isPalindromeRecursive(""));      // true
+console.log(isPalindromeRecursive("Level")); // true
