@@ -27,3 +27,8 @@ input_sentence = "This is a test"
 result = spin_words(input_sentence)
 print(result)  # Output: "This is a test" (no words have five or more letters, so the sentence remains unchanged)
 
+#final solution using list comprehension and a more concise approach
+def spin_words(sentence):
+    words = [word for word in sentence.split(" ")]
+    words = [word if len(word) < 5 else word[::-1] for word in words]
+    return " ".join(words)
