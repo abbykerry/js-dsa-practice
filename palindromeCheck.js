@@ -45,13 +45,22 @@ function isPalindromeRecursive(str){
     //recursive case: check if the first and last characters are the same, and then check the substring that excludes those characters
     if (normalizedStr[0] === normalizedStr[normalizedStr.length - 1]) {
         return isPalindromeRecursive(normalizedStr.slice(1, -1)); //slice(1, -1) creates a new string that excludes the first and last characters
-    }
+    } //after this base case hits
     return false;
-
 }
+
 console.log(isPalindromeRecursive("civic"));   // true
 console.log(isPalindromeRecursive("eye"));   // true
 console.log(isPalindromeRecursive("Dance")); // false
 console.log(isPalindromeRecursive("A"));     // true
 console.log(isPalindromeRecursive(""));      // true
 console.log(isPalindromeRecursive("Level")); // true
+
+
+//function that takes str parameter and find longest palindromic substring
+function longestPalindrome(str) {
+    let longest = "";
+    //the function below starts from the middle and expands outward to find a palindrome. It takes two parameters, left and right, 
+    // which represent the indices of the characters being compared.
+    function expandAroundCenter(left, right) {}
+}

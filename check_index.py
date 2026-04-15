@@ -13,4 +13,5 @@ def check_index(numbers, target):
     #if no such pair is found, we return an empty list
     return []
 
-print(check_index(numbers, target))
+result = (check_index(numbers, target))
+print(result)
