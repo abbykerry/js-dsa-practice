@@ -35,3 +35,34 @@ Algorithm: Sliding Window + Hash Set
 Time Complexity: O(n)  // each character visited at most twice
 Space Complexity: O(min(n, k))  // k = charset size
 */
+
+//Solution2 HASH MAP
+function lengthOfLongestSubstringMap(s) {
+    // Map to store last seen index of each character
+    const map = new Map();
+
+    let left = 0;
+    let maxLength = 0;
+
+    for (let right = 0; right < s.length; right++) {
+        // If character seen before, jump left pointer
+        if (map.has(s[right])) {
+            // Ensure left only moves forward
+            left = Math.max(left, map.get(s[right]) + 1);
+        }
+
+        // Update last seen index
+        map.set(s[right], right);
+
+        // Update max length
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
+
+    return maxLength;
+}
+
+/*
+Algorithm: Sliding Window + Hash Map (Index Tracking)
+Time Complexity: O(n)
+Space Complexity: O(min(n, k))
+*/
