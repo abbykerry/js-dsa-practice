@@ -41,3 +41,27 @@ function groupAnagrams(strs) {
 
     return Object.values(map);
 }
+
+//solution2 - using character count
+
+function groupAnagrams(strs) {
+    let map = {};
+
+    for (let word of strs) {
+        let count = new Array(26).fill(0);
+
+        for (let char of word) {
+            count[char.charCodeAt(0) - 97]++;
+        }
+
+        let key = count.join(",");
+
+        if (!map[key]) {
+            map[key] = [];
+        }
+
+        map[key].push(word);
+    }
+
+    return Object.values(map);
+}
